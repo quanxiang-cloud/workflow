@@ -1,0 +1,20 @@
+port: 9093
+log_level: debug
+
+workflow_instance: localhost:9091
+form_instance: lowcode.alpha
+
+# The interval between scans, units second.
+interval: 60s
+
+mysql:
+  db: workflow
+  host: 192.168.200.10:32258
+  user: root
+  password: qxp1234
+  log: true
+
+nvl:
+  enable: true
+  buffer_length: 100
+  ttl: 10s

@@ -1,0 +1,11 @@
+apiVersion: dapr.io/v2alpha1
+kind: Subscription
+metadata:
+  name: form-flow
+scopes:
+- trigger
+spec:
+  pubsubname: form-redis-pubsub
+  routes:
+    default: /api/v1/trigger/exec
+  topic: form.Flow

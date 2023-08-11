@@ -1,0 +1,19 @@
+FROM alpine as certs
+RUN apk update && apk add ca-certificates
+
+FROM golang:1.19-alpine AS builder
+
+WORKDIR /builder
+
+COPY . .
+
+# build all
+RUN CGO_ENABLED=0 go build -o trigger --mod=vendor -ldflags='-s -w'  -installsuffix cgo cmd/form/*.go
+
+FROM scratch
+COPY --from=certs /etc/ssl/certs /etc/ssl/certs
+
+WORKDIR /apps
+COPY --from=builder ./builder/trigger .
+
+
