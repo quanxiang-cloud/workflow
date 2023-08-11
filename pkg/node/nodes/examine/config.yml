@@ -1,0 +1,12 @@
+port: 8082
+
+log_level: debug
+
+mysql:
+  db: workflow
+  host: localhost
+  user: root
+  password: 123456
+  log: true
+
+qx_instance: ["http://lowcode.alpha"]

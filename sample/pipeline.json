@@ -1,0 +1,50 @@
+{
+    "name": "test",
+    "spec": {
+        "params": [
+            {
+                "name": "email",
+                "default": "hello@demo.com",
+                "description": "mail"
+            }
+        ],
+        "nodes": [
+            {
+                "name": "email",
+                "spec": {
+                    "type": "email",
+                    "params": [
+                        {
+                            "key": "email",
+                            "value": "$(params.email)"
+                        },
+                        {
+                            "key": "name",
+                            "value": "username"
+                        }
+                    ],
+                    "out": [
+                        "name",
+                        "age"
+                    ]
+                }
+            },
+            {
+                "name": "email1",
+                "spec": {
+                    "type": "email",
+                    "params": [
+                        {
+                            "key": "email",
+                            "value": "maik"
+                        },
+                        {
+                            "key": "name",
+                            "value": "$(task.email.output.name)"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

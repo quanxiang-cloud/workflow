@@ -1,0 +1,38 @@
+port: 9091
+
+log_level: debug
+
+
+mysql:
+  db: workflow
+  host: 192.168.200.10:32258
+  user: root
+  password: qxp1234
+  log: true
+
+
+
+# flow runner parallel number. default 1
+parallel: 5
+
+# retarder
+retarder:
+  enable: true
+  buffer_size: 1000
+  delay: 5
+
+# nodes config
+# use node type find service host
+nodes:
+  - type: email
+    host: ["localhost:8081"]
+  - type: approve
+    host: [ "localhost:8082" ]
+  - type: process-branch
+    host: [ "localhost:8083" ]
+  - type: form-create-data
+    host: [ "localhost:8084" ]
+  - type: form-update-data
+    host: [ "localhost:8085" ]
+  - type: web-hook
+    host: [ "localhost:8086" ]

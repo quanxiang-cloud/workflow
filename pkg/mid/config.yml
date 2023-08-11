@@ -1,0 +1,13 @@
+port: 9092
+
+log_level: debug
+
+mysql:
+  db: workflow
+  host: 192.168.200.10:32258
+  user: root
+  password: qxp1234
+  log: true
+
+workflow_instance: localhost:9091
+trigger_instance: localhost:9093
